@@ -16,9 +16,14 @@ public class PizzaOrderServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,HttpServletResponse response){
         String name = request.getParameter("crust");
+        request.setAttribute("crust",name);
         String sauce = request.getParameter("sauce");
+        request.setAttribute("sauce",sauce);
         String size = request.getParameter("size");
+        request.setAttribute("size",size);
         String address = request.getParameter("address");
+        request.setAttribute("address",address);
+
 
     }
 
