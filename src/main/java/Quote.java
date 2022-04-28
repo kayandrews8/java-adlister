@@ -1,14 +1,24 @@
 import java.io.Serializable;
 
 public class Quote implements Serializable {
+    private long id;
     private String content;
-    private String author;
+    private Author authorName;
 
     public Quote(){}
 
-    public Quote(String content, String author) {
+    public Quote(long id, String content, Author author) {
         this.content = content;
-        this.author = author;
+        this.authorName = author;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getContent() {
@@ -19,11 +29,11 @@ public class Quote implements Serializable {
         this.content = content;
     }
 
-    public String getAuthor() {
-        return author;
+    public Author getAuthor() {
+        return authorName;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(Author author) {
+        this.authorName = author;
     }
 }
