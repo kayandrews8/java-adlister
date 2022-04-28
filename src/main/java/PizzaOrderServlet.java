@@ -14,16 +14,19 @@ public class PizzaOrderServlet extends HttpServlet {
         view.forward(request,response);
     }
 
-    protected void doPost(HttpServletRequest request,HttpServletResponse response){
+    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("crust");
-        request.setAttribute("crust",name);
         String sauce = request.getParameter("sauce");
-        request.setAttribute("sauce",sauce);
         String size = request.getParameter("size");
-        request.setAttribute("size",size);
         String address = request.getParameter("address");
-        request.setAttribute("address",address);
+        String[] toppings = request.getParameterValues("toppings");
 
+        request.setAttribute("crust",name);
+        request.setAttribute("sauce",sauce);
+        request.setAttribute("size",size);
+        request.setAttribute("address",address);
+        request.setAttribute("toppings",toppings);
+        request.getRequestDispatcher("pizza-order.jsp").forward(request,response);
 
     }
 
