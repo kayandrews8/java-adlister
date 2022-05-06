@@ -29,7 +29,10 @@ public class LoginServlet extends HttpServlet {
 
         // TODO: make sure we find a user with that username
         if(findUser == null){
-            response.sendRedirect("/register");
+            response.sendRedirect("/login");
+            return;
+        } else {
+            response.sendRedirect("/profile");
         }
         // TODO: check the submitted password against what you have in your database
         boolean validAttempt = password.equals(findUser.getPassword());
